@@ -10,7 +10,7 @@ s = socket.socket( addFam, protocol)
 
 rip = input("Enter REVCEIVER IP...>>> ")
 rport = int(input("Enter REVCEVER revceving port...>>> "))
-s.bind(('192.168.0.11',5005))
+s.bind(('192.168.0.35',1321))
 send = 0 
 data1 = ''
 
@@ -21,11 +21,11 @@ def datasender():
 
 def datareceiver():
     x = s.recvfrom(1024)
-    print(x[1][0]+' : '+x[0].decode())
-    if 'exit' == data1:
+    print(x[0].decode()+' : '+x[1][0])
+    if 'exit' ==  data1:
+        print (send)
         return 1
- 
 
 while (send != 1):
-    send = datareceiver()
     data1 = datasender()
+    send = datareceiver()

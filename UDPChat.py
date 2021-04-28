@@ -14,7 +14,7 @@ s = socket.socket( addFam, protocol)
 
 rip = input("Enter REVCEIVER IP...>>> ")
 rport = int(input("Enter REVCEVER revceving port...>>> "))
-s.bind(('192.168.0.11',5005))
+s.bind(('192.168.0.35',1321))
 send = 0 
 data1 = ''
 
@@ -31,7 +31,7 @@ def datasender():
         if data == 'exit':
             send = False
             exit()
-        #time.sleep(1)
+        time.sleep(1)
 
 def datareceiver():
     send = True
@@ -42,7 +42,7 @@ def datareceiver():
         if 'exit' ==  x[0].decode():
             send = False
             exit()
-       # time.sleep(1)
+        time.sleep(1)
             
 thr1 = threading.Thread(target=datasender)
 thr2 = threading.Thread(target=datareceiver)
